@@ -70,4 +70,26 @@ Each option is described below.
 - Default: `${ process.env.API_BASE }/_hatchly/api`
 - Type: `string`
 
+## Usage
+
+All navigations are downloaded server side on page load.
+
+To access a navigation you can use the global `$nav()` method:
+
+```vue
+<ul v-if="$nav('main')">
+    <li v-for="link in $nav('main')" :key="link.id">
+        <component :is="link.tag" v-bind="link.attributes">
+            {{ link.title }}
+        </component>
+        <ul>
+            <li v-for="child in link.children" :key="child.id">
+                <component :is="child.tag" v-bind="child.attributes">
+                    {{ child.title }}
+                </component>
+            </li>
+        </ul>
+    </li>
+</ul>
+```
 
