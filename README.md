@@ -118,8 +118,12 @@ To access a navigation you can use the global `$nav()` method:
 This module exposes a storybook integration to add the `$nav` global and the store module. Simply pull the following module into your project and register your navigations, in the `preview.js` file for example:
 
 ```js
-import { setNavigations } from '@hatchly/nuxt-navigation-module/storybook';
+import hatchlyNavigation from '@hatchly/nuxt-navigation-module/storybook';
 import { navs } from './fixtures/navs';
+import store from './store';
 
-setNavigations(navs);
+hatchlyNavigation({
+    store,
+    navs,
+});
 ```
