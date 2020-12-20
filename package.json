@@ -24,7 +24,7 @@
         "nuxt": "^2.11.0"
     },
     "devDependencies": {
-        "@netsells/eslint-config": "^3.4.0",
+        "@netsells/eslint-config": "^5.0.0",
         "babel-eslint": "^10.1.0",
         "install-peers-cli": "^2.2.0"
     },
