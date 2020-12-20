@@ -43,6 +43,7 @@ The options object can contain the following values:
     baseURL: '',
     browserBaseURL: '',
     apiPath: '',
+    cacheTimeout: '',
 },
 ```
 
@@ -69,6 +70,13 @@ Each option is described below.
 - Default: `'_hatchly/api'`
 - Alias: `hatchly.apiPath`
 - Type: `string`
+
+### `cacheTimeout`
+
+> The duration, in seconds, until the cached date is refreshed. The cache can be disabled completely by passing a falsey value. 
+
+- Default: `86400` (24 hours)
+- Type: `number|boolean`
 
 ### Runtime config
 
