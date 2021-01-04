@@ -1,4 +1,5 @@
-import { registerStoreModule, registerGlobalMixin } from '../lib/plugin';
+import Vue from 'vue';
+import { registerStoreModule, globalMixin } from '../lib/plugin';
 
 /**
  * Init the store and globals and setup the navigations fixture.
@@ -9,7 +10,8 @@ import { registerStoreModule, registerGlobalMixin } from '../lib/plugin';
  */
 export default ({ store, navs }) => {
     registerStoreModule(store);
-    registerGlobalMixin();
+
+    Vue.prototype.$nav = globalMixin;
 
     store.commit('navigations/set', navs);
 };
