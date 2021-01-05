@@ -40,36 +40,11 @@ The options object can contain the following values:
 
 ```js
 {
-    baseURL: '',
-    browserBaseURL: '',
-    apiPath: '',
     cacheTimeout: '',
 },
 ```
 
 Each option is described below.
-
-### `baseURL`
-
-> The url of your Hatchly site. If `browserBaseURL` is not provided this url will be used for both server side and client side fetching.
-
-- Default: `process.env.API_URL`
-- Type: `string`
-
-### `browserBaseURL`
-
-> The public url of your Hatchly site. 
-
-- Default: `process.env.API_URL_BROWSER`
-- Type: `string`
-
-### `apiPath`
-
-> The path to the api modules `hatchly-path` value. This can be modified in the Hatchly api config file, so make sure this path corresponds to that value.
-
-- Default: `'_hatchly/api'`
-- Alias: `hatchly.apiPath`
-- Type: `string`
 
 ### `cacheTimeout`
 
@@ -80,18 +55,17 @@ Each option is described below.
 
 ### Runtime config
 
-If using nuxt runtime config to inject env variables at runtime, each of the above options can be overwritten in both `publicRuntimeConfig` and `privateRuntimeConfig` objects, for example:
+By default, this package will utilise `API_URL` and `API_URL_BROWSER` variables as defined in your env. These are injected as runtime variables for you.
+
+You can supply your endpoint manually to the module via the `publicRuntimeConfig` and `privateRuntimeConfig` objects, e.g.:
 
 ```js
 module.exports = {
     publicRuntimeConfig: {
         hatchly: {
-            // Inherit options for all hatchly modules
-            baseURL: process.env.API_URL,
-            
             navigation: {
-                // Overwrite options for the navigation module
-                baseURL: process.env.API_URL,
+                // Overwrite options for the snippets module
+                endpoint: process.env.NAVIGATIONS_API_URL,
             },
         },    
     },
