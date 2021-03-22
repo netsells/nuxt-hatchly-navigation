@@ -14,7 +14,8 @@
     },
     "homepage": "https://github.com/netsells/nuxt-hatchly-hatchly-navigation",
     "scripts": {
-        "install-peers": "install-peers"
+        "install-peers": "install-peers",
+        "prepare": "install-peers"
     },
     "peerDependencies": {
         "@nuxtjs/axios": "^5.9.5",
